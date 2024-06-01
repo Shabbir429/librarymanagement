@@ -1,6 +1,6 @@
 services:
   db:
-    container_name: database
+    container_name: lmDB
     image: postgres:alpine
     environment:
       - POSTGRES_USER=postgres
@@ -11,7 +11,7 @@ services:
       - data:/var/lib/postgresql/data
 
   pgadmin:
-    container_name: pgadmin
+    container_name: PgAdmin
     image: dpage/pgadmin4:latest
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
@@ -19,10 +19,5 @@ services:
       - PGADMIN_LISTEN_PORT=9050
     ports:
       - "9050:9050"
-  myapp2:
-    build: .
-    container_name: myapp2
-    ports:
-      - '9090:80'
 volumes:
   data:
