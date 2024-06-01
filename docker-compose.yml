@@ -1,0 +1,28 @@
+services:
+  db:
+    container_name: database
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=9050
+    ports:
+      - "9050:9050"
+  myapp2:
+    build: .
+    container_name: myapp2
+    ports:
+      - '9090:80'
+volumes:
+  data:
