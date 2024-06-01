@@ -3,8 +3,8 @@ services:
     container_name: lmDB
     image: postgres:alpine
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=lb@1234
+      - POSTGRES_PASSWORD=lb@1234
     ports:
       - '5432:5432'
     volumes:
