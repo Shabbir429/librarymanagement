@@ -8,3 +8,10 @@ engine = create_engine("postgresql://lb@1234:lb@1234@localhost/postgres",
 Base=declarative_base()
 
 SessionLocal=sessionmaker(bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
