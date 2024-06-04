@@ -9,5 +9,4 @@ class Payment(Base):
     amount = Column(Float, nullable=False)
     payment_date = Column(Date, nullable=False)
     payment_method = Column(String(50), nullable=False)
-
     member = relationship('Member', back_populates='payments')
